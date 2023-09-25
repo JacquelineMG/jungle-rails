@@ -1,0 +1,28 @@
+
+<tr>
+
+<td>
+<p class="item_name"><%= product.name %> </p>
+<p class="small_font"><%= product.description %></p>
+</td>
+
+<td>
+<%= image_tag product.image.tiny.url , alt: product.name %>
+</td>
+
+<td>
+<%= quantity %>
+</td>
+
+<td>
+<%= product.price * quantity %>
+</td>
+
+
+
+
+</tr>
+
+
+
+
