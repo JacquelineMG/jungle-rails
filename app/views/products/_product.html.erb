@@ -9,9 +9,9 @@
   <div>
 
   <% if product.quantity == 0 %>
-    <div class="soldout card">Sold Out</div> # Include sold out card
+    <div class="soldout card">Sold Out</div>
 
-    <%= button_to add_item_cart_path(product_id: product.id), disabled: true, class: 'btn' , # Include disabled add button
+    <%= button_to add_item_cart_path(product_id: product.id), disabled: true, class: 'btn' ,
     method: :post do %>
       <%= fa_icon "shopping-cart", text: 'Add' %> 
 
