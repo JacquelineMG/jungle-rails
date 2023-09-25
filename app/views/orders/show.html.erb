@@ -4,10 +4,45 @@
     <h1>Order #<%= @order.id %></h1>
   </header>
 
-  <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
-  </div>
 
+  <table>
+  <thead>
+    <tr>
+    <th>Item </th>
+    <th> </th>
+    <th> Quantity</th>
+    <th> Price </th>
+    </tr>
+    </thead>
+
+    <tbody>
+  <% @line_items.each do |item| %>
+    <%= render 'line_item', product: item.product, quantity: item.quantity.to_i %>
+  <% end %>
+  </tbody>
+
+  <tfoot>
+
+  <tr> 
+
+  <th> Order Total: <%= humanized_money_with_symbol (@order.total_cents/100.00)  %></th>
+  
+  </tr>
+  
+  
+  </div>
+  </tfoot>
+  
+  </table>
+
+  <br>
+  <p> Your receipt has been sent to: <%= @order.email %> </p>
+
+  <br><br>
+  <div class="order-summary jumbotron">
+  <h4>Thank you for your order!</h4>
+  </div>
+  <br>
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>
