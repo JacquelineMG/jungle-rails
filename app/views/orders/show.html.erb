@@ -5,35 +5,32 @@
   </header>
 
 
-  <table>
-  <thead>
-    <tr>
-    <th>Item </th>
-    <th> </th>
-    <th> Quantity</th>
-    <th> Price </th>
-    </tr>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Item </th>
+        <th> </th>
+        <th scope="col"> Quantity</th>
+        <th scope="col"> Price </th>
+      </tr>
     </thead>
 
     <tbody>
-  <% @line_items.each do |item| %>
-    <%= render 'line_item', product: item.product, quantity: item.quantity.to_i %>
-  <% end %>
-  </tbody>
+      <% @line_items.each do |item| %>
+        <%= render 'line_item', product: item.product, quantity: item.quantity.to_i %>
+      <% end %>
+    </tbody>
 
   <tfoot>
+    <tr> 
+    
+      <th class="order_total" colspan="3"> Order Total: </th>  
 
-  <tr> 
-
-  <th> Order Total: <%= humanized_money_with_symbol (@order.total_cents/100.00)  %></th>
-  
-  </tr>
-  
-  
-  </div>
+      <th> <%= humanized_money_with_symbol (@order.total_cents/100.00)  %></th>
+    </tr>
   </tfoot>
   
-  </table>
+</table>
 
   <br>
   <p> Your receipt has been sent to: <%= @order.email %> </p>
