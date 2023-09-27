@@ -111,3 +111,10 @@ form.button_to {
 .text-danger {
   color: #f38792 !important;
 }
+
+.signedin {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.55)
+}
